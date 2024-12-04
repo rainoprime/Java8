@@ -17,7 +17,15 @@ public class BehaviorParameterizationNew {
         peoples.add(new People("Jason", 20));
         peoples.add(new People("Tom", 50));
 
-        // 行为参数化使用Lambda实现的方式
+
+        // Java8之前可以使用匿名内部类实现
+        BehaviorParameterizationNew.selectPage(peoples, new BehaviorParameterizationInterface() {
+            @Override
+            public boolean selectPage(People people) {
+               return people.getAge() > 50;
+            }
+        });
+        // Java8就可以使用Lambda实现的方式
         List<People> people1 = BehaviorParameterizationNew.selectPage(peoples, people -> people.getAge() >= 50);
 
         for (People people : people1) {
