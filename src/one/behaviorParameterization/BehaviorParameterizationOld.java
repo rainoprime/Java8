@@ -59,4 +59,7 @@ class People {
     public void setAge(Integer age) {
         this.age = age;
     }
+    public static boolean isOld(People people) {
+        return people.getAge() > 50;
+    }
 }
